@@ -176,7 +176,7 @@ FeaturePlotSaveGO <- function(obj = combined.obj
                               , save.plot = TRUE
                               , title_ = paste(GO.score, name_desc)
                               , h=7, PNG = T, ...) { # Plot and save a FeaturePlot, e.g. showing gene set scores.
-  proper.GO <- paste(sstrsplit(GO.score, pattern = "\\.", n = 3)[2:3], collapse = ":")
+  proper.GO <- paste(stringr::str_split(GO.score, pattern = "\\.", n = 3)[2:3], collapse = ":")
   (genes.GO = obj@misc$GO[[make.names(proper.GO)]])
 
   ggplot.obj <-
